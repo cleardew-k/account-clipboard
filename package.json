@@ -1,0 +1,14 @@
+{
+  "name": "kbank-clipboard",
+  "version": "1.0.0",
+  "description": "클립보드에서 금융기관정보를 추출하는 javascript function 작성",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
+}
