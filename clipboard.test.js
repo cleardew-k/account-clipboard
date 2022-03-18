@@ -1,5 +1,33 @@
 var clipboard = require("./clipboard");
 
+const accts = [
+  "100124481075",
+  `100
+  124
+  481075`,
+  "100 124 481075",
+  "100-124-481075",
+  "100124-48-1-0-75",
+  "10 01 24 48 107 5",
+  "          100124481075     "
+]
+
+describe("계좌번호 테스트", () => {
+  accts.forEach((acct) => {
+    it(acct, () => {
+      expect(clipboard.getResult(acct)).toEqual({
+        instCode: "",
+        instAccount: "100124481075",
+        txAmt: ""
+      });
+    });
+  });
+});
+
+const amounts = [
+
+]
+
 const testcases = [
   {
     name: "은행명 2개",
@@ -12,7 +40,7 @@ const testcases = [
   },
   {
     name: "부산 장례식장",
-    text: "장지: 부산 장례식장\n마음을 전하실 곳: 하나은행 100-1234-5679 김케이", 
+    text: "장지: 부산 장례식장\n마음을 전하실 곳: 하나은행 100-1234-5679 김케이",
     result: {
       instCode: "081",
       instAccount: "10012345679",
@@ -31,7 +59,7 @@ const testcases = [
   },
   {
     name: "은행명 없는 계좌번호와 금액",
-    text: "12341234123 400원", 
+    text: "12341234123 400원",
     result: {
       instCode: "",
       instAccount: "12341234123",
@@ -74,7 +102,7 @@ const testcases = [
       instCode: "003",
       instAccount: "02908182204039",
       txAmt: ""
-    } 
+    }
   },
   {
     name: "인터파크 입금요청",
@@ -203,10 +231,10 @@ const testcases = [
       instAccount: "",
       txAmt: ""
     }
-  }
+  },
 ];
 
-testcases.forEach(({name, text, result}) => {
+testcases.forEach(({ name, text, result }) => {
   it(name, () => {
     expect(clipboard.getResult(text)).toEqual(result);
   });
