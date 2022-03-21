@@ -227,8 +227,8 @@ const testcases = [
     계좌번호 :새금 9002 1512 8355 1
     택 배 비 : 착불(ㅇ) 선불()`,
     result: {
-      instCode: "",
-      instAccount: "",
+      instCode: "045",
+      instAccount: "9002151283551",
       txAmt: ""
     }
   },
