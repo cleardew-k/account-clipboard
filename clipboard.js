@@ -22,7 +22,7 @@ function getRegExp() {
 
 // 정규식 패턴
 const regExpObj = getRegExp();
-const regAcctNum = /(\d-\d+-\d+-?\d+)|(\d{1,8}\s\d+\s\d+\s?\d+)|(\d{7,15})/g;
+const regAcctNum = /(\d+-\d+[\d-]+)|(\d+\s\d+[\s\d]+)|(\d{7,15})/g;
 const regMoney = /([1-9]\d{0,6}\s{0,1}원)|((\d{1},)?\d{1,3},\d{3}\s{0,1}원)|((\d{1},)?\d{1,3},\d{3})|([1-9]\d{0,2}만원)/g;
 
 /**
