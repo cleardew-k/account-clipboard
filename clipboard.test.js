@@ -25,8 +25,27 @@ describe("계좌번호 테스트", () => {
 });
 
 const amounts = [
-
+  '30000',
+  '30,000',
+  '30000원',
+  ',30000원',
+  '30,000원',
+  '3만원',
+  '30 000원'
 ]
+
+describe("금액 테스트", () => {
+  amounts.forEach((amount) => {
+    it(amount, () => {
+      expect(clipboard.getResult(amount)).toEqual({
+        instCode: "",
+        instAccount: "",
+        txAmt: "30000"
+      });
+    });
+  });
+});
+
 
 const testcases = [
   {
