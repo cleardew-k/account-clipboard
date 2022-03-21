@@ -37,7 +37,7 @@ function getResult(text) {
   let txAmt = "";
 
   // 개행 공백으로 교체
-  const noLineText = text.replace(/\n/g, " ");
+  const noLineText = text.replace(/\n/g, "  ");
 
   // 금액 추출
   const moneyArr = noLineText.match(regMoney) || [];
