@@ -54,11 +54,12 @@ function getResult(text) {
 
   // 계좌번호 추출
   const rawAcctArr = noMoneyText.match(regAcctNum) || [];
-  const rawAcctArrSorted = rawAcctArr.sort(function (a, b) {
+  const rawAcctArrSorted = rawAcctArr.sort((a, b) => {
       return b.length - a.length;
     }); // 길이순 정렬 (핸드폰 번호 등 우선도 낮추기 위해)
-
-  const cleanAcctArr = rawAcctArrSorted.map((acct) => acct.replace(/\D/g, ""));
+  const cleanAcctArr = rawAcctArrSorted.map((acct) => acct.replace(/\D/g, "")).filter((acct) => 
+    acct.length > 6 && acct.length < 16 
+  );
 
   instAccount = cleanAcctArr[0] || "";
   // 은행명 추출
@@ -77,7 +78,7 @@ function getResult(text) {
       if (distance < minDistance) {
         minDistance = distance;
         const fstKeyName = matchNames[i] || "";
-        instCode = INST_INFO[matchNames[i].toUpperCase()] || "";
+        instCode = INST_INFO[fstKeyName.toUpperCase()] || "";
       }
     }
   } else {
